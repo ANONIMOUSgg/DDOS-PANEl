@@ -11,7 +11,7 @@ import subprocess
 import platform
 import sqlite3
 from datetime import datetime
-
+import base64
 import shutil
 from pathlib import Path
 
